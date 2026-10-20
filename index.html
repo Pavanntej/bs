@@ -1302,10 +1302,15 @@
             /* Persistent app navigation with safe-area support */
             .mobile-bottom-nav {
                 position: fixed;
-                z-index: 950;
+                /* Override the global nav { top: 0 } rule. Without this,
+                   top and bottom are both set and the bar covers the whole page. */
+                top: auto;
+                bottom: 0;
                 left: 0;
                 right: 0;
-                bottom: 0;
+                height: auto;
+                min-height: 0;
+                z-index: 950;
                 display: grid;
                 grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 0;
